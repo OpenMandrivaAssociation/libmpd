@@ -1,31 +1,25 @@
-%define name libmpd
-%define version 0.13.0
-%define api_version     0.13
-%define lib_major       0
-%define lib_name        %mklibname - %{api_version} %{lib_major}
+%define major 0
+%define libname %mklibname - %{major}
 
-Summary: Music Player Daemon Library
-Name: %{name}
-Version: %{version}
-Release: %mkrel 2 
-License: GPL
-Url: http://cms.qballcow.nl/index.php?page=libmpd
-Group: Sound
-Source: http://download.qballcow.nl/programs/gmpc-0.13/%{name}-%{version}.tar.gz
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+Summary:	Music Player Daemon Library
+Name:		libmpd
+Version:	0.14.0
+Release:	%mkrel 1 
+License:	GPL
+Group:		Sound
+Url:		http://sarine.nl/libmpd
+Source:		http://download.sarine.nl/gmpc-0.15.0/%{name}-%{version}.tar.bz2
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
-
 Libmpd is an a library to easily connect to a mpd server. 
 It's wraps around libmpdclient and provides a higher level api. 
 
 %package devel
-Summary: Header files for developing programs with libmpd
-Requires: %{name} = %{version}
+Summary:	Header files for developing programs with libmpd
+Requires:	%{name} = %{version}-%{release}
 Provides:       %{name}-devel = %{version}-%{release}
-Provides:       %{name}-%{api_version}-devel
-Group: Development/Libraries
-Requires: pkgconfig
+Group:		Development/Libraries
 
 %description devel
 libmpd-devel is a sub-package which contains header files and static libraries
@@ -39,26 +33,25 @@ for developing program with libmpd.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
-rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}.la
+
+rm -f %{buildroot}%{_libdir}/%{name}.la
 
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr (-,root,root)
 %doc ChangeLog COPYING README
-%{_libdir}/libmpd.so.0*
+%{_libdir}/libmpd.so.%{major}*
 
 %files devel
 %defattr (-,root,root)
 %{_libdir}/libmpd.so
 %{_libdir}/pkgconfig/libmpd.pc
-%{_prefix}/include/libmpd
-
-
+%{_includedir}/libmpd
