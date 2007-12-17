@@ -9,7 +9,6 @@ License:	GPL
 Group:		Sound
 Url:		http://sarine.nl/libmpd
 Source:		http://download.sarine.nl/gmpc-0.15.0/%{name}-%{version}.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Libmpd is an a library to easily connect to a mpd server. 
