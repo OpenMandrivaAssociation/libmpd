@@ -10,6 +10,7 @@ License:	GPLv2+
 Group:		Sound
 Url:		http://sarine.nl/libmpd
 Source:		http://download.qballcow.nl/gmpc-0.15.5/%{name}-%{version}.tar.bz2
+BuildRequires:	glib2-devel
 
 %description
 Libmpd is an a library to easily connect to a mpd server. 
