@@ -1,26 +1,36 @@
 %define major 0
-%define libname %mklibname - %{major}
+%define libname %mklibname mpd %{major}
+%define develname %mklibname mpd -d
 
 Summary:	Music Player Daemon Library
 Name:		libmpd
-Version:	0.14.0
-Release:	%mkrel 2
-License:	GPL
+Version:	0.15.0
+Release:	%mkrel 1
+License:	GPLv2+
 Group:		Sound
 Url:		http://sarine.nl/libmpd
-Source:		http://download.sarine.nl/gmpc-0.15.0/%{name}-%{version}.tar.bz2
+Source:		http://download.qballcow.nl/gmpc-0.15.5/%{name}-%{version}.tar.bz2
 
 %description
 Libmpd is an a library to easily connect to a mpd server. 
 It's wraps around libmpdclient and provides a higher level api. 
 
-%package devel
+%package -n %{libname}
+Summary:	Music Player Daemon Library
+Group:		Sound
+Obsoletes:	libmpd
+
+%description -n %{libname}
+Libmpd is an a library to easily connect to a mpd server. 
+It's wraps around libmpdclient and provides a higher level api. 
+
+%package -n %{develname}
 Summary:	Header files for developing programs with libmpd
 Requires:	%{name} = %{version}-%{release}
 Provides:       %{name}-devel = %{version}-%{release}
 Group:		Development/Other
 
-%description devel
+%description -n %{develname}
 libmpd-devel is a sub-package which contains header files and static libraries
 for developing program with libmpd.
 
@@ -37,20 +47,20 @@ rm -rf %{buildroot}
 
 rm -f %{buildroot}%{_libdir}/%{name}.la
 
-%post -p /sbin/ldconfig
+%post -n %{libname} -p /sbin/ldconfig
 
-%postun -p /sbin/ldconfig
+%postun -n %{libname} -p /sbin/ldconfig
 
 %clean
 rm -rf %{buildroot}
 
-%files
+%files -n %{libname}
 %defattr (-,root,root)
-%doc ChangeLog COPYING README
 %{_libdir}/libmpd.so.%{major}*
 
-%files devel
+%files -n %{develname}
 %defattr (-,root,root)
+%doc ChangeLog README
 %{_libdir}/libmpd.so
 %{_libdir}/pkgconfig/libmpd.pc
 %{_includedir}/libmpd
