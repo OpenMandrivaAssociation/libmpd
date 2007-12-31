@@ -5,7 +5,7 @@
 Summary:	Music Player Daemon Library
 Name:		libmpd
 Version:	0.15.0
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPLv2+
 Group:		Sound
 Url:		http://sarine.nl/libmpd
@@ -29,6 +29,7 @@ It's wraps around libmpdclient and provides a higher level api.
 Summary:	Header files for developing programs with libmpd
 Requires:	%{libname} = %{version}-%{release}
 Provides:       %{name}-devel = %{version}-%{release}
+Obsoletes:	%{name}-devel < %{version}-%{release}
 Group:		Development/Other
 
 %description -n %{develname}
