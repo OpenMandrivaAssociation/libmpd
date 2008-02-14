@@ -8,6 +8,7 @@ Version:	0.15.0
 Release:	%mkrel 3
 License:	GPLv2+
 Group:		Sound
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Url:		http://sarine.nl/libmpd
 Source:		http://download.qballcow.nl/gmpc-0.15.5/%{name}-%{version}.tar.bz2
 BuildRequires:	glib2-devel
