@@ -5,7 +5,7 @@
 Summary:	Music Player Daemon Library
 Name:		libmpd
 Version:	0.15.0
-Release:	%mkrel 3
+Release:	%mkrel 5
 License:	GPLv2+
 Group:		Sound
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
