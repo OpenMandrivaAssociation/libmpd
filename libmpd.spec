@@ -8,10 +8,10 @@ Version:	0.15.0
 Release:	%mkrel 5
 License:	GPLv2+
 Group:		Sound
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Url:		http://sarine.nl/libmpd
-Source:		http://download.qballcow.nl/gmpc-0.15.5/%{name}-%{version}.tar.bz2
+Source0:	http://download.sarine.nl/Programs/gmpc/%{version}/%{name}-%{version}.tar.bz2
 BuildRequires:	glib2-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Libmpd is an a library to easily connect to a mpd server. 
@@ -41,7 +41,9 @@ for developing program with libmpd.
 %setup -q
 
 %build
-%configure2_5x --disable-static
+%configure2_5x \
+	--disable-static
+
 %make
 
 %install
