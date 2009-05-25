@@ -1,15 +1,15 @@
-%define major 0
+%define major 1
 %define libname %mklibname mpd %{major}
 %define develname %mklibname mpd -d
 
 Summary:	Music Player Daemon Library
 Name:		libmpd
-Version:	0.17.0
+Version:	0.18.0
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Sound
 Url:		http://sarine.nl/libmpd
-Source0:	http://download.sarine.nl/Programs/gmpc/%{version}/%{name}-%{version}.tar.bz2
+Source0:	http://download.sarine.nl/Programs/gmpc/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	glib2-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
