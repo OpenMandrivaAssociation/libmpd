@@ -5,7 +5,7 @@
 Summary:	Music Player Daemon Library
 Name:		libmpd
 Version:	11.8.17
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://sarine.nl/libmpd
