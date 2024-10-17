@@ -8,7 +8,7 @@ Version:	11.8.17
 Release:	8
 License:	GPLv2+
 Group:		System/Libraries
-Url:		http://sarine.nl/libmpd
+Url:		https://sarine.nl/libmpd
 Source0:	http://download.sarine.nl/Programs/gmpc/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(glib-2.0)
 
